@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.mapper.OrderMapper" >
+	<resultMap id="BaseResultMap" type="com.demo.entity.Order" >
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="userid" property="userid" jdbcType="VARCHAR" />
+		<result column="appointment_time" property="appointmentTime" jdbcType="TIMESTAMP" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="money" property="money" jdbcType="SMALLINT" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+    id, userid, appointment_time, create_time, money, phone, remark
+	</sql>
+  
+</mapper>

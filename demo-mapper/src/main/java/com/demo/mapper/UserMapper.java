@@ -1,9 +1,8 @@
 package com.demo.mapper;
 
 import com.demo.entity.User;
+import com.demo.inner.base.mapper.BaseMapper;
 
-import tk.mybatis.mapper.common.Mapper;
-
-public interface UserMapper extends Mapper<User>{
+public interface UserMapper extends BaseMapper<User>{
 
 }

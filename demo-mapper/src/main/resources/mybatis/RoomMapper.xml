@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.mapper.RoomMapper" >
+	<resultMap id="BaseResultMap" type="com.demo.entity.Room" >
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="room_name" property="roomName" jdbcType="VARCHAR" />
+		<result column="room_date" property="roomDate" jdbcType="DATE" />
+		<result column="room_num" property="roomNum" jdbcType="INTEGER" />
+		<result column="room_time" property="roomTime" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+		<result column="room_remark" property="roomRemark" jdbcType="VARCHAR" />
+		<result column="room_is_now" property="roomIsNow" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+  
+	<sql id="Base_Column_List" >
+    id, room_name, room_date, room_num, room_time, user_name, user_phone, room_remark, 
+    room_is_now, create_time
+	</sql>
+  
+</mapper>
