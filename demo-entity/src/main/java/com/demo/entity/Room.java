@@ -2,34 +2,39 @@ package com.demo.entity;
 
 import java.util.Date;
 
-public class Room {
-    private String id;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
+import com.demo.base.entity.BaseEntity;
+
+@Table(name = "room")
+public class Room extends BaseEntity{
+	@Column(name = "roomName")
     private String roomName;
 
+	@Column(name = "roomName")
     private Date roomDate;
 
+	@Column(name = "roomNum")
     private Integer roomNum;
 
+	@Column(name = "roomTime")
     private String roomTime;
 
+	@Column(name = "userName")
     private String userName;
 
+	@Column(name = "userPhone")
     private String userPhone;
 
+	@Column(name = "roomRemark")
     private String roomRemark;
 
+	@Column(name = "roomIsNow")
     private String roomIsNow;
 
+	@Column(name = "createTime")
     private Date createTime;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
     public String getRoomName() {
         return roomName;

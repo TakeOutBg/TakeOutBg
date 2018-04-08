@@ -5,26 +5,19 @@
  */
 package com.demo.base.entity;
 
+import javax.persistence.Id;
+
 public class BaseEntity {
 
-	private String uuid;
+	@Id
+	protected String id;
 
-	private String name;
-	
-	public String getUuid() {
-		return uuid;
+	public String getId() {
+		return id;
 	}
 
-	public void setUuid(String uuid) {
-		 this.uuid = uuid == null ? null : uuid.trim();
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setId(String id) {
+		 this.id = id == null ? null : id.trim();
 	}
 
 }

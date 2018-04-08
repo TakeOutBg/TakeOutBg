@@ -1,24 +1,34 @@
 package com.demo.entity;
 
-public class OrderDtl {
-    private String id;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
+import com.demo.base.entity.BaseEntity;
+
+@Table(name = "order_dtl")
+public class OrderDtl extends BaseEntity{
+
+	@Column(name = "itemName")
     private String itemName;
 
+	@Column(name = "itemNum")
     private Short itemNum;
 
+	@Column(name = "itemMoney")
     private String itemMoney;
 
+	@Column(name = "orderId")
     private String orderId;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
-
+	
+	public OrderDtl() {
+		
+	}
+	
+	public OrderDtl(String ID) {
+		this.id = ID;
+	}
+	
     public String getItemName() {
         return itemName;
     }

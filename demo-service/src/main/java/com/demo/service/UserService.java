@@ -6,4 +6,7 @@ import com.demo.mapper.UserMapper;
 
 public interface UserService extends BaseService<User, UserMapper>{
 
+	
+	public User selectByUsername(String username);
+	
 }

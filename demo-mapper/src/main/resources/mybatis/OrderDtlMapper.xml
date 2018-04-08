@@ -12,4 +12,11 @@
     id, item_name, item_num, item_money, order_id
 	</sql>
   
+	<select id="selectDtlByOrderID" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from order_dtl where order_id = #{orderID,jdbcType = VARCHAR}
+		order by item_name 
+	</select>
+	
 </mapper>

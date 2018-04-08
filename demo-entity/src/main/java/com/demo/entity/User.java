@@ -1,15 +1,12 @@
 package com.demo.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.demo.base.entity.BaseEntity;
 
 @Table(name = "user")
 public class User extends BaseEntity{
-	@Id
-    private String id;
 
 	@Column(name = "username")
     private String username;
@@ -17,6 +14,22 @@ public class User extends BaseEntity{
 	@Column(name = "phone")
     private String phone;
 
+	
+	public User(String id) {
+		this.id = id;
+	}
+	
+	public User(String username,String phone) {
+		this.username = username;
+		this.phone = phone;
+	}
+	
+	public User(String id,String username,String phone) {
+		this.id = id;
+		this.username = username;
+		this.phone = phone;
+	}
+	
     public String getId() {
         return id;
     }

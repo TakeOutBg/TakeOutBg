@@ -4,9 +4,17 @@
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<id column="userid" property="userid" jdbcType="VARCHAR" />
 		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List" >
-    id, userid, address
+    	id, userid, address,phone
 	</sql>
+  
+	<select id="selecOrdersByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from address where userid = #{userID,jdbcType = VARCHAR}
+		order by address
+	</select>
   
 </mapper>

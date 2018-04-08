@@ -1,29 +1,36 @@
 package com.demo.entity;
 
 import java.util.Date;
+import java.util.List;
 
-public class Order {
-    private String id;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
+import com.demo.base.entity.BaseEntity;
+
+@Table(name = "order")
+public class Order extends BaseEntity{
+	@Column(name = "userid")
     private String userid;
 
+	@Column(name = "appointmentTime")
     private Date appointmentTime;
 
+	@Column(name = "createTime")
     private Date createTime;
 
+	@Column(name = "money")
     private Short money;
 
+	@Column(name = "phone")
     private String phone;
 
+	@Column(name = "remark")
     private String remark;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
+	
+	private List<OrderDtl> orderDtls;
+	
 
     public String getUserid() {
         return userid;
@@ -72,4 +79,14 @@ public class Order {
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
+	public List<OrderDtl> getOrderDtls() {
+		return orderDtls;
+	}
+
+	public void setOrderDtls(List<OrderDtl> orderDtls) {
+		this.orderDtls = orderDtls;
+	}
+ 
+    
 }

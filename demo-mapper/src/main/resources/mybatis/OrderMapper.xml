@@ -14,4 +14,11 @@
     id, userid, appointment_time, create_time, money, phone, remark
 	</sql>
   
+	<select id="selectOrderByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from order where userid = #{userId,jdbcType = VARCHAR}
+		order by create_time
+	</select>
+  
 </mapper>

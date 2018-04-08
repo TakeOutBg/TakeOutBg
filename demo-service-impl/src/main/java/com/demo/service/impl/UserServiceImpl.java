@@ -10,5 +10,11 @@ import com.demo.service.UserService;
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User, UserMapper> implements UserService{
 
+	@Override
+	public User selectByUsername(String username) {
+		return null;
+//		return mapper.selectByUsername(username);
+	}
+
 	
 }

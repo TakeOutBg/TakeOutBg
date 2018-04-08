@@ -14,15 +14,14 @@ import com.demo.inner.base.mapper.BaseMapper;
 import com.demo.inner.base.service.BaseService;
 import com.demo.inner.util.ExampleUtil;
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 
 public class BaseServiceImpl<T extends BaseEntity,E extends BaseMapper<T>> implements BaseService<T,E>{
 
 	@Autowired
-	private E mapper;
+	protected E mapper;
 	
 	@Autowired
-	private ExampleUtil exampleUtil;
+	protected ExampleUtil exampleUtil;
 
 	@Override
 	public List<T> select(T entity) {

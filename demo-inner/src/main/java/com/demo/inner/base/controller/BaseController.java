@@ -17,7 +17,7 @@ import com.github.pagehelper.Page;
 public class BaseController<T extends BaseEntity, E extends BaseMapper<T>, S extends BaseService<T, E>> {
 
 	@Autowired
-	private S service;
+	protected S service;
 	
 	
 	public List<T> select(T entity) {
