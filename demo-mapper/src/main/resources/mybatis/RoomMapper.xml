@@ -19,4 +19,23 @@
     room_is_now, create_time
 	</sql>
   
+ 	<select id="selecRoomsByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
+ 		select 
+ 		<include refid="Base_Column_List"/>
+ 		from room where userId = #{userID, jdbcType = VARCHAR}
+ 		order by room_date
+ 	</select>
+	
+	<select id="selectRoomByTime" resultType="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from room where room_name = #{roomName,jdbcType = VARCHAR} 
+		and room_date = #{roomDate,jdbcType = DATE}
+		and room_time = #{roomTime, jdbcType = VARCHAR}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

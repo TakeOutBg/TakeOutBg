@@ -36,7 +36,19 @@ public class Room extends BaseEntity{
 	@Column(name = "createTime")
     private Date createTime;
 
-    public String getRoomName() {
+	
+	@Column(name = "userId")
+	private String userid;
+	
+    public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getRoomName() {
         return roomName;
     }
 
