@@ -12,7 +12,7 @@ public class Room extends BaseEntity{
 	@Column(name = "roomName")
     private String roomName;
 
-	@Column(name = "roomName")
+	@Column(name = "roomDate")
     private Date roomDate;
 
 	@Column(name = "roomNum")

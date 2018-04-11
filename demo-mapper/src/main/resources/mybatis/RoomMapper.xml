@@ -26,7 +26,7 @@
  		order by room_date
  	</select>
 	
-	<select id="selectRoomByTime" resultType="BaseResultMap">
+	<select id="selectRoomByTime" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List"/>
 		from room where room_name = #{roomName,jdbcType = VARCHAR} 
