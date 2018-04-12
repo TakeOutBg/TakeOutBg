@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.demo.entity.User;
-import com.demo.inner.base.controller.BaseController;
 import com.demo.inner.dto.AjaxResult;
 import com.demo.mapper.UserMapper;
 import com.demo.service.UserService;

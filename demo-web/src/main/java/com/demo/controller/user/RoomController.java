@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.demo.entity.Room;
-import com.demo.inner.base.controller.BaseController;
 import com.demo.inner.dto.AjaxResult;
 import com.demo.mapper.RoomMapper;
 import com.demo.service.RoomService;
@@ -70,7 +69,7 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 				room1.setRoomNum(room.getRoomNum());
 				room1.setRoomRemark(room.getRoomRemark());
 				room1.setRoomIsNow("yes");
-				service.updateByPrimaryKey(room1);
+				service.updateByPrimaryKeySelective(room1);
 				result.setStatus("202");
 				result.setMessage("order success");
 			}else {
@@ -81,7 +80,7 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 			room.setUserid(userID);
 			room.setId(UUID.randomUUID().toString());
 			room.setRoomIsNow("yes");
-			service.insert(room);
+			service.insertSelective(room);
 			result.setStatus("202");
 			result.setMessage("order success");
 		}

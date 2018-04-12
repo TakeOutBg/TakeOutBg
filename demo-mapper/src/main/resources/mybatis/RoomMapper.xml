@@ -32,6 +32,7 @@
 		from room where room_name = #{roomName,jdbcType = VARCHAR} 
 		and room_date = #{roomDate,jdbcType = DATE}
 		and room_time = #{roomTime, jdbcType = VARCHAR}
+		limit 0,1
 	</select>
 	
 	

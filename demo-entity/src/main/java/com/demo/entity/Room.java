@@ -5,39 +5,41 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.demo.base.entity.BaseEntity;
 
 @Table(name = "room")
 public class Room extends BaseEntity{
-	@Column(name = "roomName")
+	@Column(name = "ROOM_NAME")
     private String roomName;
 
-	@Column(name = "roomDate")
+	@Column(name = "ROOM_DATE")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date roomDate;
 
-	@Column(name = "roomNum")
+	@Column(name = "ROOM_NUM")
     private Integer roomNum;
 
-	@Column(name = "roomTime")
+	@Column(name = "ROOM_TIME")
     private String roomTime;
 
-	@Column(name = "userName")
+	@Column(name = "USER_NAME")
     private String userName;
 
-	@Column(name = "userPhone")
+	@Column(name = "USER_PHONE")
     private String userPhone;
 
-	@Column(name = "roomRemark")
+	@Column(name = "ROOM_REMARK")
     private String roomRemark;
 
-	@Column(name = "roomIsNow")
+	@Column(name = "ROOM_IS_NOW")
     private String roomIsNow;
 
-	@Column(name = "createTime")
+	@Column(name = "CREATE_TIME")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
-	
-	@Column(name = "userId")
 	private String userid;
 	
     public String getUserid() {

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.demo.entity.Address;
-import com.demo.inner.base.controller.BaseController;
 import com.demo.inner.dto.AjaxResult;
 import com.demo.mapper.AddressMapper;
 import com.demo.service.AddressService;
