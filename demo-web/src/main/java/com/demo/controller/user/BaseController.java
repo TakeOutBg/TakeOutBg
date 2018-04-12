@@ -64,7 +64,7 @@ public class BaseController<T extends BaseEntity, E extends BaseMapper<T>, S ext
 		if(record.getClass()  == User.class){
 			User user = (User)record;
 			UserService userService = (UserService) service;
-			List<User> list = userService.select((User)record);
+			List<User> list = userService.select(user);
 			if(null != list && list.size() > 0){
 				ajax.setStatus("500");
 				ajax.setMessage("该用户名已存在");
