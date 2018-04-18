@@ -158,6 +158,6 @@ public class BaseController<T extends BaseEntity, E extends BaseMapper<T>, S ext
 	@RequestMapping(value = "/getLists.do")
 	@ResponseBody
 	public List<T> getList(T record){
-		return null;
+		return service.select(record);
 	}
 }

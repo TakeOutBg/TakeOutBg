@@ -28,6 +28,14 @@ public class Order extends BaseEntity{
 	@Column(name = "remark")
     private String remark;
 
+	@Column(name = "address")
+	private String address;
+	
+	@Column(name = "user_sex")
+	private String userSex;
+	
+	@Column(name = "doc_status")
+	private String docStatus;
 	
 	private List<OrderDtl> orderDtls;
 	
@@ -86,6 +94,30 @@ public class Order extends BaseEntity{
 
 	public void setOrderDtls(List<OrderDtl> orderDtls) {
 		this.orderDtls = orderDtls;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getUserSex() {
+		return userSex;
+	}
+
+	public void setUserSex(String userSex) {
+		this.userSex = userSex;
+	}
+
+	public String getDocStatus() {
+		return docStatus;
+	}
+
+	public void setDocStatus(String docStatus) {
+		this.docStatus = docStatus;
 	}
  
     

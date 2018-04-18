@@ -24,8 +24,8 @@ public interface BaseService<T extends BaseEntity,E extends BaseMapper<T>>  {
 	public int insertSelective(T entity);
 	public int updateByPrimaryKey(T entity);
 	public int updateByPrimaryKeySelective(T entity);
-	public int updateByExample(T entity);
-	public int updateByExampleSelective(T entity);
+	public int updateByExample(T entity, T entity2);
+	public int updateByExampleSelective(T entity,T entity2);
 	public int delete(T entity);
 	public int deleteByExample(T entity);
 	public int deleteByPrimaryKey(T entity);

@@ -23,7 +23,7 @@ public class ExampleUtil {
 		try {
 			Criteria criteria = example.createCriteria();
 			Class<?> c = record.getClass();
-			Field []fields = c.getFields();
+			Field []fields = c.getDeclaredFields();
 			for(Field field : fields){
 				if(field.isAnnotationPresent(com.demo.base.entity.annotation.EnableExample.class)){
 					Method m = getGetMethod(field.getName(),c);

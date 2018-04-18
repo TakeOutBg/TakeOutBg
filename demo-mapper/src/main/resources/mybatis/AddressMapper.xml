@@ -6,9 +6,12 @@
 		<id column="userid" property="userid" jdbcType="VARCHAR" />
 		<result column="address" property="address" jdbcType="VARCHAR" />
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+		<result column="add_is_default" property="addIsDefault" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List" >
-    	id, userid, address,phone
+    	id, userid, address,phone,user_name,user_sex,add_is_default
 	</sql>
   
 	<select id="selecOrdersByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">

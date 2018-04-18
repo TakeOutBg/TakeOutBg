@@ -10,10 +10,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.demo.base.entity.BaseEntity;
+import com.demo.entity.Address;
 import com.demo.inner.base.mapper.BaseMapper;
 import com.demo.inner.base.service.BaseService;
 import com.demo.inner.util.ExampleUtil;
 import com.github.pagehelper.Page;
+
+import tk.mybatis.mapper.entity.Example;
 
 public class BaseServiceImpl<T extends BaseEntity,E extends BaseMapper<T>> implements BaseService<T,E>{
 
@@ -84,13 +87,13 @@ public class BaseServiceImpl<T extends BaseEntity,E extends BaseMapper<T>> imple
 	}
 
 	@Override
-	public int updateByExample(T entity) {
-		return mapper.updateByExample(entity, exampleUtil.getExample(entity));
+	public int updateByExample(T entity, T entity2) {
+		return mapper.updateByExample(entity, exampleUtil.getExample(entity2));
 	}
 
 	@Override
-	public int updateByExampleSelective(T entity) {
-		return mapper.updateByExampleSelective(entity, exampleUtil.getExample(entity));
+	public int updateByExampleSelective(T entity,T entity2) {
+		return mapper.updateByExampleSelective(entity, exampleUtil.getExample(entity2));
 	}
 
 	@Override

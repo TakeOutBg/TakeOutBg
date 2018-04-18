@@ -9,9 +9,12 @@
 		<result column="money" property="money" jdbcType="SMALLINT" />
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+		<result column="doc_status" property="docStatus" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List" >
-    id, userid, appointment_time, create_time, money, phone, remark
+    id, userid, appointment_time, create_time, money, phone, remark, address, user_sex, doc_status
 	</sql>
   
 	<select id="selectOrderByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
