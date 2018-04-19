@@ -8,15 +8,18 @@ import javax.persistence.Table;
 
 import com.demo.base.entity.BaseEntity;
 
-@Table(name = "order")
+@Table(name = "orders")
 public class Order extends BaseEntity{
 	@Column(name = "userid")
     private String userid;
+	
+	@Column(name = "user_name")
+    private String userName;
 
-	@Column(name = "appointmentTime")
-    private Date appointmentTime;
+	@Column(name = "appointment_Time")
+    private String appointmentTime;
 
-	@Column(name = "createTime")
+	@Column(name = "create_Time")
     private Date createTime;
 
 	@Column(name = "money")
@@ -39,8 +42,15 @@ public class Order extends BaseEntity{
 	
 	private List<OrderDtl> orderDtls;
 	
+    public String getUserName() {
+		return userName;
+	}
 
-    public String getUserid() {
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserid() {
         return userid;
     }
 
@@ -48,11 +58,11 @@ public class Order extends BaseEntity{
         this.userid = userid == null ? null : userid.trim();
     }
 
-    public Date getAppointmentTime() {
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 
-    public void setAppointmentTime(Date appointmentTime) {
+    public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 

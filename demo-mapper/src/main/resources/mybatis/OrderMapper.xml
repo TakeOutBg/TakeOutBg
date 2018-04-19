@@ -4,7 +4,8 @@
 	<resultMap id="BaseResultMap" type="com.demo.entity.Order" >
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="userid" property="userid" jdbcType="VARCHAR" />
-		<result column="appointment_time" property="appointmentTime" jdbcType="TIMESTAMP" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="appointment_time" property="appointmentTime" jdbcType="VARCHAR" />
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="money" property="money" jdbcType="SMALLINT" />
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
@@ -14,13 +15,13 @@
 		<result column="doc_status" property="docStatus" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List" >
-    id, userid, appointment_time, create_time, money, phone, remark, address, user_sex, doc_status
+    id, userid, user_name, appointment_time, create_time, money, phone, remark, address, user_sex, doc_status
 	</sql>
   
 	<select id="selectOrderByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
 		select 
 		<include refid="Base_Column_List"/>
-		from order where userid = #{userId,jdbcType = VARCHAR}
+		from orders where userid = #{userId,jdbcType = VARCHAR}
 		order by create_time
 	</select>
   

@@ -8,16 +8,16 @@ import com.demo.base.entity.BaseEntity;
 @Table(name = "order_dtl")
 public class OrderDtl extends BaseEntity{
 
-	@Column(name = "itemName")
+	@Column(name = "item_name")
     private String itemName;
 
-	@Column(name = "itemNum")
+	@Column(name = "item_num")
     private Short itemNum;
 
-	@Column(name = "itemMoney")
+	@Column(name = "item_money")
     private String itemMoney;
 
-	@Column(name = "orderId")
+	@Column(name = "order_id")
     private String orderId;
 
 	

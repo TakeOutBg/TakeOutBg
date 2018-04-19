@@ -1,9 +1,11 @@
 package com.demo.controller.user;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +24,19 @@ public class OrderController extends BaseController<Order, OrderMapper, OrderSer
 
 	@Autowired
 	protected OrderDtlService orderDtlService;
+	
+	@RequestMapping(value = "/getOrdersByID.do",method = RequestMethod.GET)
+	public AjaxResult<Order> getOrdersByID(String ID){
+		
+		AjaxResult<Order> result = new AjaxResult<Order>();
+		Order order = service.selectByPrimaryKey(ID);
+		OrderDtl dtl = new OrderDtl();
+		dtl.setOrderId(ID);
+		List<OrderDtl> dtls = orderDtlService.select(dtl);
+		order.setOrderDtls(dtls);
+		result.setObject(order);
+		return result;
+	}
 	
 	@RequestMapping(value = "/getOrdersByUserID.do",method = RequestMethod.GET)
 	public AjaxResult<Order> getOrdersByUserID(String userID){
@@ -53,22 +68,23 @@ public class OrderController extends BaseController<Order, OrderMapper, OrderSer
 		return result;
 	}
 	
-	@RequestMapping(value = "/createOrder.do",method = RequestMethod.GET)
-	public AjaxResult<Order> createOrder(Order order){
+	@RequestMapping(value = "/createOrder.do",method = RequestMethod.POST)
+	public AjaxResult<Order> createOrder(@RequestBody Order order){
 		
 		AjaxResult<Order> result = new AjaxResult<Order>();
 		
 		
 		order.setId(UUID.randomUUID().toString());
-		service.insert(order);
+		service.insertSelective(order);
 		
 		for(OrderDtl orderdtl: order.getOrderDtls()) {
 			orderdtl.setId(UUID.randomUUID().toString());
-			orderDtlService.insert(orderdtl);
+			orderdtl.setOrderId(order.getId());
+			orderDtlService.insertSelective(orderdtl);
 		}
 		
 		result.setStatus("202");
-		
+		result.setObject(order);
 		return result;
 	}
 	
