@@ -19,7 +19,7 @@ public class RoomServiceImpl extends BaseServiceImpl<Room, RoomMapper> implement
 	}
 
 	@Override
-	public Room selectRoomByTime(String roomName, Date roomDate, String roomTime) {
+	public Room selectRoomByTime(String roomName, String roomDate, String roomTime) {
 		return mapper.selectRoomByTime(roomName,roomDate,roomTime);
 	}
 

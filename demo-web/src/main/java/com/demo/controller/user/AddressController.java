@@ -13,6 +13,9 @@ import com.demo.entity.Address;
 import com.demo.inner.dto.AjaxResult;
 import com.demo.mapper.AddressMapper;
 import com.demo.service.AddressService;
+import com.github.pagehelper.util.StringUtil;
+
+import tk.mybatis.mapper.entity.Example;
 
 @Controller
 @ResponseBody
@@ -82,6 +85,24 @@ public class AddressController extends BaseController<Address, AddressMapper, Ad
 		return result;
 	}
 
+	@RequestMapping(value = "/searchAddressByUserID.do",method = RequestMethod.GET)
+	public AjaxResult<Address> searchAddressByUserID(String userID,String address){
+		
+		AjaxResult<Address> result = new AjaxResult<Address>();
+		Example example = new Example(Address.class);
+		if(StringUtil.isEmpty(address)){
+			example.createCriteria().andEqualTo("userid", userID);
+		}else{
+			example.createCriteria().andEqualTo("userid", userID).andLike("address", "%"+ address +"%");
+		}
+		
+		result.setResult(service.selectByExample(example));
+		
+		result.setStatus("202");
+		
+		return result;
+	}
+	
 	@RequestMapping(value = "/updateAddress.do",method = RequestMethod.GET)
 	public AjaxResult<Address> updateAddress(Address address){
 		

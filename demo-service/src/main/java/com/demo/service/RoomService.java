@@ -1,6 +1,5 @@
 package com.demo.service;
 
-import java.util.Date;
 import java.util.List;
 
 import com.demo.entity.Room;
@@ -11,7 +10,7 @@ public interface RoomService extends BaseService<Room, RoomMapper>{
 
 	public List<Room> selecRoomsByUserID(String userID);
 
-	public Room selectRoomByTime(String roomName, Date roomDate, String roomTime);
+	public Room selectRoomByTime(String roomName, String roomDate, String roomTime);
 
 
 }

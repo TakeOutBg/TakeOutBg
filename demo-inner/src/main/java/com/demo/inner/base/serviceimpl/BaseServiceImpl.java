@@ -116,6 +116,11 @@ public class BaseServiceImpl<T extends BaseEntity,E extends BaseMapper<T>> imple
 		return null;
 	}
 
+	@Override
+	public List<T> selectByExample(Example example) {
+		return mapper.selectByExample(example);
+	}
+
 	
 
 }

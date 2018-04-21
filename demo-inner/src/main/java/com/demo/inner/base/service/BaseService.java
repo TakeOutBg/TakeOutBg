@@ -11,11 +11,14 @@ import com.demo.base.entity.BaseEntity;
 import com.demo.inner.base.mapper.BaseMapper;
 import com.github.pagehelper.Page;
 
+import tk.mybatis.mapper.entity.Example;
+
 public interface BaseService<T extends BaseEntity,E extends BaseMapper<T>>  {
 	public List<T> select(T entity);
 	public List<T> selectAll();
 	public T selectByPrimaryKey(String uuid);
 	public List<T> selectByExample(T entity);
+	public List<T> selectByExample(Example example);
 	public int selectCount(T entity);
 	public int selectCountByExample(T entity);
 	public T selectOne(T entity);

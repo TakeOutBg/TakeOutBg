@@ -12,6 +12,6 @@ public interface RoomMapper extends BaseMapper<Room>{
 
 	public List<Room> selecRoomsByUserID(String userID);
 
-	public Room selectRoomByTime(@Param("roomName")String roomName, @Param("roomDate")Date roomDate, @Param("roomTime")String roomTime);
+	public Room selectRoomByTime(@Param("roomName")String roomName, @Param("roomDate")String roomDate, @Param("roomTime")String roomTime);
     
 }

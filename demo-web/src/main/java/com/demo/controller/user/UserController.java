@@ -2,9 +2,8 @@ package com.demo.controller.user;
 
 import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,12 +19,22 @@ import com.demo.service.UserService;
 public class UserController extends BaseController<User, UserMapper,UserService>{
 
 	
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public AjaxResult<User> login(String username,String password,HttpServletRequest request) {
-		
-		
-		
-		return null;
+	@RequestMapping(value = "/loginOrRegister.do", method = RequestMethod.POST)
+	public AjaxResult<User> login(@RequestBody User user) {
+		User _user = service.selectByPrimaryKey(user.getId());
+		int flag = 1;
+		if(null == _user){
+			flag = service.insertSelective(user);
+			_user = user;
+		}
+		AjaxResult<User> result = new AjaxResult<>();
+		if(flag == 0){
+			result.setStatus("500");
+		}else{
+			result.setStatus("202");
+			result.setObject(_user);
+		}
+		return result;
 	}
 	
 	

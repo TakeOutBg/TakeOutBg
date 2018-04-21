@@ -29,6 +29,18 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "/getRoom.do",method = RequestMethod.GET)
+	public AjaxResult<Room> getRoomID(String id){
+		
+		AjaxResult<Room> result = new AjaxResult<Room>();
+		
+		result.setObject(service.selectByPrimaryKey(id));
+		
+		result.setStatus("202");
+		
+		return result;
+	}
 
 	//根据roomid和userid来取消已经预约的房间。
 	@RequestMapping(value = "/cancleRoom.do",method = RequestMethod.GET)
@@ -39,16 +51,17 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 		
 		if(userID == null) {
 			result.setStatus("404");
-			result.setMessage("userID is empty");
+			result.setMessage("请先关注");
 		}else {
 			Room room = service.selectByPrimaryKey(roomID);
 			if(userID.equals(room.getUserid())) {
 				room.setRoomIsNow("no");//设置取消
+				service.updateByPrimaryKey(room);
 				result.setStatus("202");
-				result.setMessage("cancle order success");
+				result.setMessage("取消成功");
 			}else {
 				result.setStatus("404");
-				result.setMessage("this room is not yours order");
+				result.setMessage("您还未订该房间");
 			}
 		}
 		return result;
@@ -71,10 +84,10 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 				room1.setRoomIsNow("yes");
 				service.updateByPrimaryKeySelective(room1);
 				result.setStatus("202");
-				result.setMessage("order success");
+				result.setMessage("订单成功");
 			}else {
 				result.setStatus("404");
-				result.setMessage("this room has ordered");
+				result.setMessage("该房间已被预定");
 			}
 		}else {
 			room.setUserid(userID);
@@ -82,7 +95,7 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 			room.setRoomIsNow("yes");
 			service.insertSelective(room);
 			result.setStatus("202");
-			result.setMessage("order success");
+			result.setMessage("订单成功");
 		}
 
 		return result;

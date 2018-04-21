@@ -15,8 +15,7 @@ public class Room extends BaseEntity{
     private String roomName;
 
 	@Column(name = "ROOM_DATE")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date roomDate;
+    private String roomDate;
 
 	@Column(name = "ROOM_NUM")
     private Integer roomNum;
@@ -58,11 +57,11 @@ public class Room extends BaseEntity{
         this.roomName = roomName == null ? null : roomName.trim();
     }
 
-    public Date getRoomDate() {
+    public String getRoomDate() {
         return roomDate;
     }
 
-    public void setRoomDate(Date roomDate) {
+    public void setRoomDate(String roomDate) {
         this.roomDate = roomDate;
     }
 
