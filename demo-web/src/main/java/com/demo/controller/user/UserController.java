@@ -37,6 +37,26 @@ public class UserController extends BaseController<User, UserMapper,UserService>
 		return result;
 	}
 	
+	@RequestMapping(value = "/loginOrRegisterForShop.do", method = RequestMethod.POST)
+	public AjaxResult<User> loginForShop(@RequestBody User user) {
+		User _user = new User();
+		_user.setId(user.getId());
+		_user.setType(user.getType());
+		User __user = service.selectOne(_user);
+		int flag = 1;
+		if(null == __user){
+			flag = service.insertSelective(user);
+			__user = user;
+		}
+		AjaxResult<User> result = new AjaxResult<>();
+		if(flag == 0){
+			result.setStatus("500");
+		}else{
+			result.setStatus("202");
+			result.setObject(__user);
+		}
+		return result;
+	}
 	
 	@RequestMapping(value = "/regist.do",method = RequestMethod.GET)
 	public AjaxResult<User> regist(String username,String phone){

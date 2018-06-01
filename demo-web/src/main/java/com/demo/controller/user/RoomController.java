@@ -30,6 +30,18 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 		return result;
 	}
 	
+	@RequestMapping(value = "/getAllRoom.do",method = RequestMethod.GET)
+	public AjaxResult<Room> getAllRoom(){
+		
+		AjaxResult<Room> result = new AjaxResult<Room>();
+		
+		result.setResult(service.getAllRoom());
+		
+		result.setStatus("202");
+		
+		return result;
+	}
+	
 	@RequestMapping(value = "/getRoom.do",method = RequestMethod.GET)
 	public AjaxResult<Room> getRoomID(String id){
 		
@@ -65,7 +77,6 @@ public class RoomController extends BaseController<Room, RoomMapper, RoomService
 			}
 		}
 		return result;
-		
 	}
 
 	@RequestMapping(value = "/orderRoom.do",method = RequestMethod.GET)

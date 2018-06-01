@@ -22,7 +22,10 @@
  	<select id="selecRoomsByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
  		select 
  		<include refid="Base_Column_List"/>
- 		from room where userId = #{userID, jdbcType = VARCHAR}
+ 		from room 
+ 		<if test="null != userId">
+	 		where userId = #{userID, jdbcType = VARCHAR}
+ 		</if>
  		order by room_date
  	</select>
 	

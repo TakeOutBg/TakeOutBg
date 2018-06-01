@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.mapper.CouponMapper" >
+	<resultMap id="BaseResultMap" type="com.demo.entity.Coupon" >
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="low_price" property="lowPrice" jdbcType="INTEGER" />
+		<result column="reduce" property="reduce" jdbcType="INTEGER" />
+		<result column="start_time" property="startTime" jdbcType="DATE" />
+		<result column="end_time" property="endTime" jdbcType="DATE" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+    id, name, low_price, reduce, start_time, end_time, type, create_time
+	</sql>
+	<select id="getAvaliableList" resultMap="BaseResultMap">
+		SELECT id, name, low_price, reduce, start_time, end_time, type, create_time FROM coupon WHERE DATE_FORMAT(SYSDATE(),'%Y-%m-%d') &lt; end_time
+	</select>
+	
+	<select id="getDateoutList" resultMap="BaseResultMap">
+		SELECT c.* FROM coupon c
+		LEFT JOIN user_coupou u ON c.id = u.coupon_id
+		WHERE u.user_id = #{userId} AND u.type = '0' AND DATE_FORMAT(SYSDATE(),'%Y-%m-%d') &gt; end_time
+	</select>
+	
+	<select id="getUnuseList" resultMap="BaseResultMap">
+		SELECT c.* FROM coupon c
+		LEFT JOIN user_coupou u ON c.id = u.coupon_id
+		WHERE u.user_id = #{userId} 
+		AND u.type = '0' 
+		AND DATE_FORMAT(SYSDATE(),'%Y-%m-%d') &lt; end_time	
+	</select>
+	
+	<select id="getUsedList" resultMap="BaseResultMap">
+		SELECT c.* FROM coupon c
+		LEFT JOIN user_coupou u ON c.id = u.coupon_id
+		WHERE u.user_id = #{userId} 
+		AND u.type = '1' 
+		AND DATE_FORMAT(SYSDATE(),'%Y-%m-%d') &lt; end_time	
+	</select>
+</mapper>

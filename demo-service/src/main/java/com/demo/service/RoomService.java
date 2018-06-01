@@ -9,6 +9,8 @@ import com.demo.mapper.RoomMapper;
 public interface RoomService extends BaseService<Room, RoomMapper>{
 
 	public List<Room> selecRoomsByUserID(String userID);
+	
+	public List<Room> getAllRoom();
 
 	public Room selectRoomByTime(String roomName, String roomDate, String roomTime);
 

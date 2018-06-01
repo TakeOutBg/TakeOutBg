@@ -1,6 +1,5 @@
 package com.demo.service.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -21,6 +20,11 @@ public class RoomServiceImpl extends BaseServiceImpl<Room, RoomMapper> implement
 	@Override
 	public Room selectRoomByTime(String roomName, String roomDate, String roomTime) {
 		return mapper.selectRoomByTime(roomName,roomDate,roomTime);
+	}
+
+	@Override
+	public List<Room> getAllRoom() {
+		return mapper.selecRoomsByUserID(null);
 	}
 
 }

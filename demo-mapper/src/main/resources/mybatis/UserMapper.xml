@@ -5,15 +5,13 @@
 		<id column="id" jdbcType="VARCHAR" property="id" />
 		<result column="username" jdbcType="VARCHAR" property="username" />
 		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="image" jdbcType="VARCHAR" property="image" />
+		<result column="type" jdbcType="VARCHAR" property="type" />
 	</resultMap>
   
 	<sql id="Base_Column_List">
-    id, username, phone
+    id, username, phone, image, type
 	</sql>
-
- 
- 	
- 
  
  	<select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
  		select

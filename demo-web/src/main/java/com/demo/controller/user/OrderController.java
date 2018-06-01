@@ -38,6 +38,14 @@ public class OrderController extends BaseController<Order, OrderMapper, OrderSer
 		return result;
 	}
 	
+	@RequestMapping(value = "/getAllOrders.do",method = RequestMethod.GET)
+	public AjaxResult<Order> getAllOrders(){
+		AjaxResult<Order> result = new AjaxResult<Order>();
+		result.setResult(service.selecAllOrders());
+		result.setStatus("202");
+		return result;
+	}
+	
 	@RequestMapping(value = "/getOrdersByUserID.do",method = RequestMethod.GET)
 	public AjaxResult<Order> getOrdersByUserID(String userID){
 		

@@ -10,4 +10,6 @@ public interface OrderService extends BaseService<Order, OrderMapper>{
 
 	public List<Order> selecOrdersByUserID(String userID);
 
+	public List<Order> selecAllOrders();
+
 }

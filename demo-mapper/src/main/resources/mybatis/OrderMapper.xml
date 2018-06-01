@@ -21,7 +21,10 @@
 	<select id="selectOrderByUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
 		select 
 		<include refid="Base_Column_List"/>
-		from orders where userid = #{userId,jdbcType = VARCHAR}
+		from orders 
+		<if test="null != userId">
+			where userid = #{userId,jdbcType = VARCHAR}
+		</if>
 		order by create_time
 	</select>
   

@@ -9,7 +9,6 @@ import com.demo.base.entity.annotation.EnableExample;
 @Table(name = "address")
 public class Address extends BaseEntity{
     
-
 	@Column(name = "userid")
 	@EnableExample
     private String userid;

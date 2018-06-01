@@ -17,5 +17,10 @@ public class OrderServiceImpl extends BaseServiceImpl<Order, OrderMapper> implem
 		return mapper.selectOrderByUserID(userID);
 	}
 
+	@Override
+	public List<Order> selecAllOrders() {
+		return mapper.selectOrderByUserID(null);
+	}
+
 	
 }

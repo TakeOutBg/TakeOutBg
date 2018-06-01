@@ -13,7 +13,12 @@ public class User extends BaseEntity{
 
 	@Column(name = "phone")
     private String phone;
+	
+	@Column(name = "image")
+	private String image;
 
+	@Column(name = "type")
+	private String type;
 	
 	public User(String id) {
 		this.id = id;
@@ -57,4 +62,21 @@ public class User extends BaseEntity{
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+    
 }
